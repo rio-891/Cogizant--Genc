@@ -1,0 +1,692 @@
+---------------------------------------------------
+---------------------------------------------------
+1. Display ASCII
+
+#include <iostream>
+using namespace std;
+
+
+int main()   //DO NOT change the 'main' signature
+{
+    char c;
+    int ch;
+    cout << "Enter a character: ";
+    cin >> c;
+    ch = int(c);
+    if(ch>=65&&ch<=122){
+    cout<<c<<"-"<<ch;
+    }
+    else{
+        cout<<"Invalid";
+        
+    }
+    //Fill code here
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+2. Lowest Mark in Each Semester
+
+#include <iostream>
+using namespace std;
+
+
+int main()   //DO NOT change the 'main' signature
+{
+    int a;
+    int im=0;
+    cout<<"Enter number of semester:\n";
+    cin>>a;
+    int d[a];
+    for(int i=0;i<a;i++){
+        cout<<"Enter number of subjects in "<<i+1<<" semester:\n";
+        int b;
+        cin>>b;
+        
+        int c[b];
+        for(int j=0;j<b;j++){
+            cin>>c[j];
+            if((c[j]>100)||(c[j]<0)){
+                im++;
+            }
+        }
+        int min=c[0];
+        for(int k=1;k<b;k++){
+            if(min>c[k]){
+                min=c[k];
+            }
+        }
+        d[i]=min;
+        
+    }
+    for(int l1=0;l1<a;l1++){
+        if(im==0){
+           cout<<"Minimum mark in "<<l1+1<<" semester:"<<d[l1]<<"\n"; 
+           
+        }
+        else{
+            cout<<"You have entered invalid mark";
+            break;
+        }
+    }
+    
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+3. Multiply first and last integer
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+
+int main()   //DO NOT change the 'main' signature
+{
+    string s;
+    cin>>s;
+    int n=s.length();
+    cout<<"Result:"<<(s[0]-48)*(s[n-1]-48);
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+4. Divide Numbers
+
+#include <iostream>
+using namespace std;
+
+int DivideNumbers(int num){
+    return (num/10)/(num%10);
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int res=DivideNumbers(n);
+    cout<<res;
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+5. Shop
+
+#include <iostream>
+using namespace std;
+
+class Shop {
+
+    private:
+      //Declare the attributes
+      string itemName;
+      string itemQuantity;
+      double itemPrice;
+
+    public:
+         //Getters and setters for above variables.
+         void setItemName(string iname){
+             itemName = iname;
+         }
+         void setItemQuantity(string iqty){
+             itemQuantity = iqty;
+         }
+         void setItemPrice(double iprice){
+             itemPrice = iprice;
+         }
+         string getItemName(){
+             return itemName;
+         }
+         string getItemQuantity(){
+             return itemQuantity;
+         }
+         double getItemPrice(){
+             return itemPrice;
+         }
+};
+
+int main(){
+        // set the values 
+        // get the values and print 
+        string name, qty;
+        double p;
+        Shop s;
+        cout<<"Enter the item name";
+        cin>>name;
+        cout<<"Enter the item quantity:";
+        cin>>qty;
+        cout<<"Enter the item price";
+        cin>>p;
+        s.setItemName(name);
+        s.setItemQuantity(qty);
+        s.setItemPrice(p);
+        cout<<"Item Name:"<<s.getItemName()<<"\n";
+        cout<<"Item Quantity:"<<s.getItemQuantity()<<"\n";
+        cout<<"Item Price:"<<s.getItemPrice()<<"\n";
+    }
+
+---------------------------------------------------
+---------------------------------------------------
+
+6. Amusement Park
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int calculateTicketPrice(int price,int noOfAdults){
+    return price*noOfAdults;
+}
+
+int calculateTicketPrice(int price ,int noOfAdults,int noOfKids){
+    int res;
+    res=price*noOfAdults+price*noOfKids*0.5;
+    return res;
+}
+
+int calculateTicketPrice(int price ,int noOfAdults,bool camera){
+    if(camera==1)
+        return noOfAdults*price+100;
+    else
+        return noOfAdults*price;
+    
+}
+
+int calculateTicketPrice(int noOfStudents){
+    return 100*noOfStudents;
+}
+
+int main()   //DO NOT change the 'main' signature
+{
+    cout<<calculateTicketPrice(1000,3)<<endl;
+    cout<<calculateTicketPrice(1000,3,2)<<endl;
+    cout<<calculateTicketPrice(1000,3,true)<<endl;
+    cout<<calculateTicketPrice(10);
+    return 0;
+    
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+7. MonthlyExpense
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+class MonthlyExpense {
+public:
+   
+    double household_exp;
+    double medical,total;
+   
+        
+        void setHouseHoldExpense(double houseExp) {
+           //Implement your code
+           household_exp = houseExp;
+        }
+       
+        void setMedicalExpense(double medical) {
+          //Implement your code
+          this->medical = medical;
+        }
+
+
+    double totalNovemberExpense() {
+        
+       //Implement your code
+       
+        total = household_exp + medical;
+        return total;
+    }
+
+
+    double totalDecemberExpense() {
+        //Implement your code
+    
+        total = household_exp + medical;
+        return total;
+    }
+
+
+    double totalNovDecExpense() {
+        //Implement your code
+        total = household_exp + medical;
+        return this->total;
+    }
+    
+    MonthlyExpense operator +(const MonthlyExpense b)
+    {
+       //Implement your code
+       MonthlyExpense temp;
+       temp.household_exp = household_exp + b.household_exp;
+       temp.medical = medical + b.medical;
+
+       return temp;
+    }
+
+};
+
+
+int main() {
+    //Implement your code
+    MonthlyExpense nov;
+    MonthlyExpense dec,res;
+
+    nov.setHouseHoldExpense(10000);
+    nov.setMedicalExpense(5000);
+    dec.setHouseHoldExpense(20000);
+    dec.setMedicalExpense(500);
+    
+    
+    cout<<"November Expenses:"<<nov.totalNovemberExpense()<<"\n";
+    cout<<"December Expenses:"<<dec.totalDecemberExpense()<<"\n";
+    res = nov + dec;
+    cout<<"Total Expenses for the month of Nov and Dec:"<<res.totalNovDecExpense();
+    
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+8. Discount Sales
+
+#include <iostream>
+using namespace std;
+ 
+class Product
+{
+  public:
+    int markedPrice(){
+        //Implement your code
+        return 1000;
+    }
+    int discount(){
+          //Implement your code
+          return 40;
+    }
+    
+};
+ 
+class Dress : public Product
+{
+  public:
+    char calculateShirtSize(int chestSize){
+          //Implement your code
+          if(chestSize>=20 && chestSize<=30) return 'S';
+          else if(chestSize>=31 && chestSize<=40) return 'M';
+          else if(chestSize>40) return 'L';
+    }
+
+};
+ class Shirt  : public Dress
+ {
+  public:
+    int dis;
+     int calculatePrice(int chestSize){
+       //Implement your code
+       dis = (markedPrice()-((markedPrice() * discount())/100));
+       if(chestSize>=20 && chestSize<=30) return dis;
+       else if(chestSize>=31 && chestSize<=40) return dis=dis+500;
+       else if(chestSize>=41) return dis=dis+1000;
+     }
+};
+
+// main function
+int main()
+{   int chestSize;
+    Dress cs;
+    Shirt pr;
+    cout<<"Enter the chest size";
+    cin>>chestSize;
+    cout<<endl<<"Dress Size : "<<cs.calculateShirtSize(chestSize);
+    cout<<endl<<"Price : "<<pr.calculatePrice(chestSize);
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+9. Player
+
+#include<iostream>
+using namespace std;
+
+class Player
+{
+public:
+    //Declare membervariables
+    int playerID, playedMatches, playerScore;
+    string playerName;
+
+public:
+void setPlayerID(int playerID){
+    this->playerID=playerID;
+    
+}
+ int getPlayerID(){
+     return playerID;
+ }
+ void setPlayerName(int playerName){
+     this->playerName=playerName;
+        
+ }
+ string getPlayerName(){
+    return playerName;
+ }
+ void setPlayerScore(int playerScore){
+    this->playerScore=playerScore;
+        
+ }
+ int getPlayerScore(){
+    return playerScore;
+ }
+ void setPlayedMatches(int playedMatches){
+    this->playedMatches=playedMatches;
+        
+ }
+ int getPlayedMatches(){
+    return playedMatches;
+ }
+ Player(int playerID, string playerName, int playerScore){
+    this->playerID=playerID;
+    this->playerName=playerName;
+    this->playerScore=playerScore;
+     
+ }
+Player(int playerID,string playerName,int playedMatches, int playerScore){
+          
+    this->playerID=playerID;
+    this->playerName=playerName;
+    this->playedMatches=playedMatches;
+    this->playerScore=playerScore;
+}
+    //Implement a parameterized constructor for 3 arguments - playerID, playerName and playerScore.
+    
+    //Implement a parameterized constructor for 4 arguments - playerID, playerName,playedMatches and playerScore.
+
+void displayThreeArgument()
+{     
+    cout<<"Player ID. : "<<playerID<<""<<endl;
+    cout<<"Player Name : "<<playerName<<""<<endl;
+    cout<<"Player Score : "<<playerScore<<""<<endl;
+         //Implement your code here
+}
+
+
+void displayFourArgument()
+{
+    cout<<"Player ID. : "<<playerID<<""<<endl;
+    cout<<"Player Name : "<<playerName<<""<<endl;
+    cout<<"Played Matches : "<<playedMatches<<""<<endl;
+    cout<<"Player Score : "<<playerScore<<""<<endl;
+    
+}    
+~Player(){
+    cout<<"Destructor Called"<<endl;
+    }
+    //Implement Destructor here
+
+};
+int main(){
+    Player p1=Player(1001,"John",130);
+    Player p2=Player(1002,"Raj",100,500);
+    p1.displayThreeArgument();
+    cout<<"--------------------------------"<<endl<<endl;
+    p2.displayFourArgument();
+
+    //Implement your code here
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+10. Country
+
+#include<iostream>
+using namespace std;
+
+
+class Country {
+private:
+    string countryName;
+
+    //Getters and setters for the Variable
+public:
+    void setCountryName(string cname) { countryName = cname; }
+    string getCountryName() { return countryName; }
+};
+
+class City : public virtual Country {
+private:
+    string cityName;
+
+    //Getters and setters for the Variable
+    public:
+    void setCityName(string cityName) { this->cityName = cityName; }
+    string getCityName() { return cityName; }
+};
+
+class State : public virtual Country {
+private:
+    string stateName;
+
+    //Getters and setters for the Variable
+    public:
+    void setStateName(string stateName) { this->stateName = stateName; }
+    string getStateName() { return stateName; }
+};
+
+class CountryInfo : public City, public State {
+ private:
+    string countryInfo;
+public:
+    void display() {
+        //Display using getters
+        cout << "Country Info:" << endl;
+        cout << "Country Name:" << getCountryName() << endl;
+        cout << "City Name:" << getCityName() << endl;
+        cout << "State Name:" << getStateName() << endl;
+    }
+};
+
+int main() {
+    //Implement your code here
+    CountryInfo c;
+    string buffer;
+    cout << "Enter the Country Name: ";
+    cin >> buffer;
+    c.setCountryName(buffer);
+    cout << "Enter the City Name: ";
+    cin >> buffer;
+    c.setCityName(buffer);
+    cout << "Enter the State Name: ";
+    cin >> buffer;
+    c.setStateName(buffer);
+    c.display();
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+11. BankAccount
+
+#include<iostream>
+using namespace std;
+
+class BankAccount{
+    private:
+        double _balance;
+	public:
+	    virtual double withdrawal(double amount){
+	        
+	    }
+	    double getBalance(){
+	        return _balance;
+	    }
+	    void setBalance(double balance){
+	        _balance = balance;
+	    }
+};
+
+class SavingsAccount: public BankAccount{
+	public:
+	    double withdrawal(double amount){
+	        int result = getBalance()-amount;
+	        setBalance(result);
+	        return getBalance();
+	    }
+};
+
+int main(){
+	double balance,amount;
+	cin>>balance>>amount;
+	SavingsAccount obj;
+	obj.setBalance(balance);
+	obj.withdrawal(amount);
+	cout <<"Available balance: "<<obj.getBalance()<<endl;
+	return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+12. String Length
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int stringLength(char* str){
+    int i;
+    for(i=0;str[i]!='\0';i++);
+    return i;
+}
+
+int main(){   //DO NOT change the 'main' signature
+    char str[100];
+    cin>>str;
+    int length=stringLength(str);
+    cout<<length;
+    return 0;
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+13. Element Replication
+
+#include <iostream>
+#include <exception>
+#include <string>
+using namespace std;
+
+void elementReplication()
+{
+    // Implement your code here
+    int size;
+    cout << "Enter the size of an array\n";
+    cin >> size;
+
+    int *data = new int[size];
+
+    cout << "Enter the array elements\n";
+    for (int i = 0; i < size; i++)
+        cin >> data[i];
+
+    int temp;
+    cout << "Enter the position of the element to be replicated\n";
+    cin >> temp;
+
+    if (temp < 0 || temp > size - 1)
+    {
+        throw runtime_error("Array index is out of range");
+    }
+
+    else
+    {
+        for (int i = 0; i < size; i++)
+        {
+            cout << data[i] << " ";
+        }
+
+        cout << data[temp];
+    }
+}
+
+int main()
+{
+
+    try
+    {
+        // Call the function
+        elementReplication();
+    }
+    catch (exception &e)
+    {
+        cerr << e.what();
+    }
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+14. Admission Eligibility
+
+#include <iostream>
+using namespace std;
+
+double eligibility_ForAdmission (int a,int b,int c)  throw (const char*)
+{
+    //Implement your code here
+if(a<60||b<60||c<60||a+b+c<180)
+       throw "Not eligible for Admission";
+    
+ return a+b+c;
+}
+
+int main()
+{
+int physics,chemistry,maths,TotalMark;
+cout<< "Enter the Physics Marks"<<endl;
+cin>>physics;
+cout<< "Enter the Chemistry Marks"<<endl;
+cin>>chemistry;
+cout<<  "Enter the Maths Marks"<<endl;
+cin>>maths;
+
+
+   try
+   {
+        //Implement your code here
+       TotalMark=
+       eligibility_ForAdmission(physics,chemistry,maths);
+       
+cout<<"Total score is "<<TotalMark;
+    
+       
+       
+       
+       
+       
+    } catch(const char*msg)
+    {
+        cerr<<msg<<endl;
+    }
+}
+
+---------------------------------------------------
+---------------------------------------------------

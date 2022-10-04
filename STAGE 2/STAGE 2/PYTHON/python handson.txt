@@ -1,0 +1,205 @@
+1.aline's visit
+print("Hello "+input("Enter the name:")+"! Welcome to our planet Earth.")
+2.income tax
+age=int(input("Enter the age:\n"))
+tax=0
+if age>18 and age<=100:
+    income=int(input("Enter the income:\n"))
+    if income>0:
+        if age<=60:
+            if income<=250000:
+                tax=(income*0)/100
+            elif income>250000 and income<=500000:
+                tax=(income*10)/100
+            elif income>500000 and income<=1000000:
+                tax=(income*20)/100
+            elif income>1000000:
+                tax=(income*30)/100
+        elif age>60 and age<=80: 
+            if income<=300000:
+                tax=(income*0)/100
+            elif income>300000 and income<=500000:
+                tax=(income*10)/100
+            elif income>500000 and income<=1000000:
+                tax=(income*20)/100
+            elif income>1000000:
+                tax=(income*30)/100
+        elif age>80 :
+            if income<=500000:
+                tax=(income*0)/100
+            elif income >500000 and income<=1000000:
+                tax=(income*20)/100
+            elif income>1000000:
+                tax=(income*30)/100
+        print("The Tax amount is: %.2f" % tax)
+    else:
+        print("Invalid Income")
+else:
+    print("Invalid Age")
+3.news report generation
+x=int(input("Dead Count:"+"\n"))
+if x>=0:
+    y=int(input("Injured Count:"+"\n"))
+    if y>=0:
+        z=int(input("Safe Count:"+"\n"))
+        if z>=0:
+            print("TSUNAMI REPORT OF JAPAN"+"\n"+"The number of people"+"\n"+"Dead:"+str(x)+"\n"+"Injured:"+str(y)+"\n"+
+"Safe:"+str(z)+"\n"+"Please help the people who are suffering!!!")
+        else:
+            print("Invalid input")
+    else:
+        print("Invalid input")
+else:
+    print("Invalid input")
+4.palindrome
+word=input("Enter the string:")
+new_word=word.lower().replace(" ","")
+if new_word[::1]==new_word[::-1]:
+    print("Yes, the string is a palindrome!")
+else:
+    print("No, the string is not a palindrome!")
+5.Search Student Data
+n=int(input("Enter the no of student details to be created : "))
+data=[]
+subdict={}
+if n>0:
+    for i in range(n):
+        name=input("Name: ")
+        age=int(input("Age: "))
+        if age<10 or age>20:
+            print("Invalid Input")
+            exit()
+        location=input("Location: ")
+        subdict.update({'Name':name,'Age':age,'Location':location})
+        data.append(subdict)
+        subdict={}
+    print("Here's the list of student details :")
+    for i in data:
+        print(i)
+    sn=input("Enter the training location: ")
+    res=[sub['Name'] for sub in data if sub['Location']==sn]
+    if not res:
+        print("Invalid location")
+    else:
+        print("Student(s) enrolled in this training location:")
+        for i in res:
+            print(i)
+else:
+    print("Invalid Input")
+6.password protection
+n1=int(input("Enter the total no.of plots: "))
+f=e=o=0
+l=[]
+if n1<=20 and n1>=1:
+    print("Enter the numbers of each plot")
+    for i in range(n1):
+        i=int(input())
+        if i<=0:
+            print("Invalid Input")
+            exit()
+        l.append(i)
+        o=(sum([i for i in l if i%2!=0]))
+        e=sum([i for i in l if i%2==0])
+        avg=float((e+o)/2)
+    print("The password for the file is: %.2f" % avg)
+else:
+    print("Invalid Input")
+7.pass or fail
+n=int(input("Enter the no. of subjects: "))
+l=[]
+f=0
+p=0
+if n>0:
+    print("Enter the marks:")
+    for i in range(n):
+        i=int(input())
+        if i>=0 and i<=100:
+            l.append(i)
+        else:
+            print("Invalid mark")
+            exit()
+    for i in l:
+        if i<=50:
+            f=f+1
+        else:
+            p=p+1
+    print("No. of subjects passed:",p)
+    print("No. of subjects failed:",f)
+else:
+    print("Invalid no. of subjects")
+8.aiema's online courses
+n=int(input("Enter number of courses: "))
+d={}
+if n>=1:
+    for i in range(n):
+        print("Enter name of the subject and mark respectively:")
+        name=input()
+        mark=int(input())
+        if mark<0 or mark>100:
+            print("Invalid mark")
+            exit()
+        d[name]=mark
+    print("The courses you have cleared are:")
+    for key,value in d.items():
+        if value>=80 and value<=100:
+            print(key,value)
+else:
+    print("Invalid no. of courses")
+9.avaerage names
+names = []
+print("Enter the number of names:")
+number = int(input())
+if(number<=0):
+    print("Invalid Input")
+else:
+    print("Enter the names:")
+    for i in range(number):
+        name = input()
+        names.append(name)
+        names.sort(reverse = True)
+        names.sort(reverse=True,key=len)
+    print("The sorted name list is:")
+    for i in range(number):
+        print(names[i])
+10.store student data
+n=int(input("Enter number of students: "))
+file=open('output_data.txt','w')
+for i in range(1,n+1):
+    print("Student"+str(i))
+    name=input("Enter name: ")
+    score=input("Enter the score: ")
+    line="Name: "+name+" "+"Score: "+score
+    file.write(line+"\n")
+file.close()
+11.rhythm composer
+def find_prime(start,end):
+    count=0
+    for num in range(start_number,end_number+1):
+        if num>1:
+            for i in range(2,num):
+                if(num%i)==0:
+                    break
+            else:
+                print(num,end=" ")
+                count=count+1
+    if count==0:
+        print("There is no prime numbers in this range")
+start_number=int(input())
+end_number=int(input())
+if start_number<0 or end_number<0 or start_number>end_number:
+    print("Invalid range")
+elif start_number==end_number:
+    print("There is no prime numbers in this range")
+else:
+    find_prime(start_number,end_number)
+12.copy the file
+print(
+     '''
+Aerosol - 38
+Churn - 50
+Plank - 55
+Slipsheet - 75
+Jerrican - 950
+Girder - 100
+     '''
+     )

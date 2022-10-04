@@ -1,0 +1,59 @@
+1.list of files2
+ls -r
+
+2.list of files 3
+ls -m
+
+3.copy file-6
+cp livingthings/birds/flyingbirds/eagle livingthings/birds/nonflyingbirds
+
+4.copy file 5
+cp livingthings/birds/flyingbirds/eider livingthings/animals/mammals
+
+5.copy directory
+cp -rf livingthings/birds livingthings/plants
+
+6. copy complete directory
+cp -ir mydir/colors/basic mydir/colors/blended mydir/shape
+
+7. move file 1
+mv mydir/animals/mammals/dog mydir/shape
+
+8. move file 2
+mv mydir/animals/reptiles/snakes mydir/shape
+
+9. find string 7
+grep -v ^# teknoscript.txt
+
+10. find string 8
+grep -v ^# teknoscript.txt
+
+11.grep cmmnd 1
+grep ';' employee.txt;
+
+12.grep cmmnd 2
+grep -v ';$' employee.txt
+
+13. script pattern printing
+#!/bin/ksh
+ for i in {1..5} ; do
+j=$i
+  while [[ $(( j -= 1 )) -gt -1 ]] ; do
+       a=$a$i
+    done
+echo "$a"
+a=""
+done
+
+14.shellscripting
+awk -F'[|]' '$3 == "Male" { print >> "male_nominee.txt"}
+             $3 == "Female" { print >> "female_nominee.txt" }' names.txt
+
+15.script to count
+file="$1"
+w=`cat $file | wc -w`
+c=`cat $file | wc -c`
+l=`grep -c "." $file`
+echo "Number of characters in $file is $c"
+echo "Number of words in $file is $w"
+echo "Number of lines in $file is $l"
